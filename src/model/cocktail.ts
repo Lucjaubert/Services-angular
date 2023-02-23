@@ -1,6 +1,6 @@
 export interface Cocktail {
-    name: string;
-    price: number;
+    nom: string;
+    prix: number;
     image: string;
   }
   
