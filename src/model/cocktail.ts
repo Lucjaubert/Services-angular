@@ -1,6 +1,10 @@
-export interface Cocktail {
-    nom: string;
-    prix: number;
-    image: string;
-  }
+export class Cocktail {
+
+    constructor(
+        public name: string,
+        public price : number,
+        public img: string,
+    )
+    {}
+    }
   

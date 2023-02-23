@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CocktailService } from '../cocktail.service';
 import { Cocktail } from 'src/model/cocktail';
-import { CocktailService } from './../cocktail.service';
 
 @Component({
   selector: 'app-cocktail-list',
@@ -9,13 +9,13 @@ import { CocktailService } from './../cocktail.service';
 })
 export class CocktailListComponent implements OnInit {
 
-  cocktails: Cocktail[] = [];
+  cocktails : Cocktail[] = [];
 
-  constructor(private cocktailService: CocktailService) { }
+  constructor(public cocktailService : CocktailService ) { }
 
-  ngOnInit() {
-    this.cocktailService.getCocktails().subscribe((data: any) => {
-      this.cocktails = data;
-    });
+  ngOnInit() :void{
+    this.cocktailService.getCocktails().subscribe(cocktailFromJason => {
+      this.cocktails = Object.values(cocktailFromJason);
+      });
   }
-}     
+}

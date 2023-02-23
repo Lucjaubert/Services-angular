@@ -1,6 +1,8 @@
+
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { Cocktail } from 'src/model/cocktail';
 
 @Injectable({
@@ -8,10 +10,12 @@ import { Cocktail } from 'src/model/cocktail';
 })
 export class CocktailService {
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) {
+
+   }
+cocktails: Cocktail[] = []
 
   getCocktails(): Observable<Cocktail[]> {
-    return this.http.get<Cocktail[]>('app/cocktails.json');
+    return this.http.get<Cocktail[]>('assets/cocktails.json');
   }
 }
-
